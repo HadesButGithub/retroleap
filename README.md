@@ -1,38 +1,44 @@
+# retroleap
 
-retroleap is a replacement firmware for Leapfrog devices (currently for LeapsterGS and LeapPad2), that combines retroarch, ARM-optimized emulator cores, and a buildroot root filesystem.
-
-You can easily download and install retroleap on your leapsterGS system! To do this, follow the instructions below on your Linux machine.
+Retroleap is a custom firmware for supported Leapster devices to run retro game emulators on your Leapster device.
 
 -------------------------------------------------------------------------------
 
-Installing:
+## Prerequisites
+1. This will overwrite the stock firmware on your Leapster device, including save files. Saves cannot be backed up.
+2. The installation requires a Linux desktop. WSL will not work, nor will live USBs. VMware Workstation seems to work the best if using a VM.
 
-1. Install the necessary dependencies:
+## Installation on Leapster Explorer
 
-On ubuntu/debian/etc: sudo apt install sg3-utils git python
+### 1. Install the necessary dependencies:
+On ubuntu/debian/etc: `sudo apt install sg3-utils git python`
 
-2. Clone sshflash:
+### 2. Clone sshflash to your PC:
+`git clone https://github.com/mac2612/sshflash.git
+cd sshflash`
 
-git clone https://github.com/mac2612/sshflash.git
-cd sshflash
-
-3. Download the latest release .tar.gz file at:
-
+### 3. Download the latest release
 https://github.com/mac2612/retroleap/releases
 
-4. Extract the release file into the sshflash directory. You should now have the uImage, rootfs.ubifs, and surgeon_zImage files in your sshflash directory.
+### 4. Extract the release file into the sshflash directory. 
+You should now have the uImage, rootfs.ubifs, and surgeon_zImage files in your sshflash directory.
 
-5. Plug your Leapster into a USB port on your PC. Turn it on while holding the L and R shoulder buttons. Yous hould see an image of a leapster connected to a PC on the leapster's screen.
+### 5. Enter Surgeon Mode
+Plug your Leapster into a USB port on your PC. Turn it on while holding the L and R shoulder buttons. 
+You should see an image of a leapster connected to a PC on the leapster's screen. If you see a LeapFrog logo, power off and try again. 
+If using VMware, pass the LeapFrog through to the VM when prompted.
 
-6. Run sshflash:
-
+### 6. Run sshflash:
 ./remote_flash.sh
 
-7. Wait for sshflash to do its thing.
+### 7. Wait...
+sshflash will do it's thing. If using VMware, make sure to allow any new devices into the VM.
 
-8. If all goes well, your leapfrog device should reboot into retroarch!
+### 8. Finalising
+Once the installation completes, your device should reboot into Retroleap!
 
-9. These instructions have been tested on Ubuntu 18.04 and 18.10. If you run into trouble, please open a bug!
+## Tested Operating Systems
+This guide has been tested on Ubuntu 18.04, 18.10, and Pop!OS 21.10.
 
 
 Button Layout:
